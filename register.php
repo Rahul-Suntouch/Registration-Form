@@ -1,13 +1,14 @@
 <?php
-$servername = "sql113.infinityfree.com";
-$username = "if0_39375984"; // XAMPP default
-$password = "Rahulp1234";     // XAMPP default is blank
-$dbname = "if0_39375984_testdb"; // Create this in phpMyAdmin
+$servername = getenv("DB_HOST");
+$username = getenv("DB_USER");
+$password = getenv("DB_PASS");
+$dbname = getenv("DB_NAME");
+$port = getenv("DB_PORT");
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+// Connect to MySQL
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
 
-// Check
+// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -21,9 +22,9 @@ $pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
 $sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$pass')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Registration successful!";
+    echo "✅ Registration successful!";
 } else {
-    echo "Error: " . $conn->error;
+    echo "❌ Error: " . $conn->error;
 }
 
 $conn->close();
