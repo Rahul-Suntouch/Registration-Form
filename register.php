@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root"; // XAMPP default
-$password = "";     // XAMPP default is blank
-$dbname = "testdb"; // Create this in phpMyAdmin
+$servername = "sql113.infinityfree.com";
+$username = "if0_39375984"; // XAMPP default
+$password = "Rahulp1234";     // XAMPP default is blank
+$dbname = "if0_39375984_testdb"; // Create this in phpMyAdmin
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
